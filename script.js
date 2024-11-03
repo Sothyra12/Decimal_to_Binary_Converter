@@ -8,11 +8,29 @@ const decimalToBinary = (input) => {
   const inputs = [];
   const quotients = [];
   const remainders = [];
+
+  while (input > 0) {
+    const quotient = Math.floor(input / 2);
+    const remainder = input % 2;
+
+    inputs.push(input);
+    quotients.push(quotient);
+    remainders.push(remainder);
+    input = quotient;
+  }
+
+  console.log("Inputs: ", inputs);
+  console.log("Quotients: ", quotients);
+  console.log("Remainders: ", remainders);
 };
 
 // test or check the input value when the convert button is clicked
 const checkUserInput = () => {
-  if (  !numberInput.value || isNaN(parseInt(numberInput.value)) || parseInt(numberInput.value) < 0) {
+  if (
+    !numberInput.value ||
+    isNaN(parseInt(numberInput.value)) ||
+    parseInt(numberInput.value) < 0
+  ) {
     alert("Please provide a decimal number greater than or equal to 0");
     return;
   }
@@ -27,7 +45,6 @@ convertBtn.addEventListener("click", checkUserInput);
 
 // check the input value when the enter key is pressed using keydown event
 numberInput.addEventListener("keydown", (e) => {
-
   // use key property which can give to string value of the key pressed and Enter key has a value of "Enter"
   if (e.key === "Enter") {
     checkUserInput();
