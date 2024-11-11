@@ -1,44 +1,14 @@
 /* script.js */
 
-const callStack = [
-  'a(): returns "freeCodeCamp " + b()',
-  'b(): returns "is " + c()',
-  'c(): returns "awesome!"'
-];
-
-const a = () => {
-  return "freeCodeCamp " + b();
-};
-
-const b = () => {
-  return "is " + c();
-};
-
-const c = () => {
-  return "awesome!";
-};
-
-console.log(a());
-
-
 const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
+// recursive function to convert decimal to binary
 const decimalToBinary = (input) => {
   
-  let binary = "";
-
-  if (binary === 0) { 
-    binary = "0";
-  }
+  // base case - when the number is 0, the function will stop calling itself to avoid infinite loop
   
-  while (input > 0) {
-    binary = (input % 2) + binary;
-    input = Math.floor(input / 2);
-  }
-
-  result.innerText = binary;
 };
 
 // test or check the input value when the convert button is clicked
