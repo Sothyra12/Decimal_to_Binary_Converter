@@ -7,8 +7,12 @@ const result = document.getElementById("result");
 // recursive function to convert decimal to binary
 const decimalToBinary = (input) => {
   
-  // base case - when the number is 0, the function will stop calling itself to avoid infinite loop
-  
+  // base case - when the input is 0, the function will stop calling itself to avoid infinite loop
+  if (input === 0) {
+    return "";
+  } else {
+    return decimalToBinary(Math.floor(input / 2)) + (input % 2);
+  }
 };
 
 // test or check the input value when the convert button is clicked
@@ -22,7 +26,7 @@ const checkUserInput = () => {
     return;
   }
 
-  decimalToBinary(parseInt(numberInput.value));
+  result.textContent = decimalToBinary(parseInt(numberInput.value));
   // clear the input field after conversion so that user can enter another number without deleting the previous one
   numberInput.value = "";
 };
