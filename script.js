@@ -8,8 +8,10 @@ const result = document.getElementById("result");
 const decimalToBinary = (input) => {
   
   // base case - when the input is 0, the function will stop calling itself to avoid infinite loop
-  if (input === 0) {
-    return "";
+  if (input === 0 || input === 1) {
+
+    // return the input value as a string using String() function
+    return String(input); 
   } else {
     return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
