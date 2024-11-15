@@ -18,10 +18,15 @@ const decimalToBinary = (input) => {
 };
 
 const showAnimation = () => {
-  console.log(showAnimation());
-  console.log("free");
-  console.log("Code");
-  console.log("Camp");
+  setTimeout(() => {
+    console.log("free");
+  }, 500);
+  setTimeout(() => {
+    console.log("Code");
+  }, 1000);
+  setTimeout(() => {
+    console.log("Camp");
+  }, 1500);
 };
 
 
