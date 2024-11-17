@@ -25,17 +25,15 @@ const animationData = [
     msg: "decimalToBinary(1) returns '1' (base case) and gives that value to the stack below. Then it pops off the stack.",
     showMsgDelay: 5000,
     removeElDelay: 10000,
-  }
+  },
 ];
 
 // recursive function to convert decimal to binary
 const decimalToBinary = (input) => {
-  
   // base case - when the input is 0, the function will stop calling itself to avoid infinite loop
   if (input === 0 || input === 1) {
-
     // return the input value as a string using String() function
-    return String(input); 
+    return String(input);
   } else {
     return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
@@ -52,31 +50,35 @@ const showAnimation = () => {
         </p>
       `;
     }, obj.addElDelay);
-  });
-};
 
+    setTimeout(() => {
+      document.getElementById(obj.inputVal).textContent = obj.msg;
+    }, obj.showMsgDelay);
+
+    setTimeout(() => {
+      document.getElementById(obj.inputVal).remove();
+    }, obj.removeElDelay);
+  });
+
+  setTimeout(() => {
+    result.textContent = decimalToBinary(5);
+  }, 20000);
+};
 
 // test or check the input value when the convert button is clicked
 const checkUserInput = () => {
-
   // store the input value as an integer using parseInt() function for better performance practices
   const inputInt = parseInt(numberInput.value);
 
-  if (
-    !numberInput.value ||
-    isNaN(inputInt) ||
-    inputInt < 0
-  ) {
+  if (!numberInput.value || isNaN(inputInt) || inputInt < 0) {
     alert("Please provide a decimal number greater than or equal to 0");
     return;
   }
 
-
-  if ( inputInt === 5) {
+  if (inputInt === 5) {
     showAnimation();
     return;
   }
-
 
   result.textContent = decimalToBinary(inputInt);
   // clear the input field after conversion so that user can enter another number without deleting the previous one
