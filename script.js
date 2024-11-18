@@ -42,7 +42,7 @@ const decimalToBinary = (input) => {
 const showAnimation = () => {
   result.innerText = "Call Stack Animation";
 
-  animationContainer.forEach((obj) => {
+  animationData.forEach((obj) => {
     setTimeout(() => {
       animationContainer.innerHTML += `
         <p id="${obj.inputVal}" class="animation-frame">
